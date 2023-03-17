@@ -1,6 +1,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 int extraMemoryAllocated;
 
@@ -8,28 +9,76 @@ int extraMemoryAllocated;
 // extraMemoryAllocated counts bytes of extra memory allocated
 void mergeSort(int pData[], int l, int r)
 {
-	
+	if(r>l){
+		int mid = (l+r)/2;
+		mergeSort(pData, l, mid);
+		mergeSort(pData, mid+1, r);
+
+		//merge(pData, l, mid, r);
+	}
 }
 
 // implement insertion sort
 // extraMemoryAllocated counts bytes of memory allocated
 void insertionSort(int* pData, int n)
 {
-	
+	int i;
+	int x;
+	int j;
+
+	for (i = 1; i < n; i++){
+		x = pData[i];
+	}
+	for(j=i-1; j>=0; j--)
+	{
+		if(pData[j]>x){
+			pData[j+1] = pData[j];
+		}
+		else{
+			break;
+		}
+	pData[j+1] = x;
+	}
 }
 
 // implement bubble sort
 // extraMemoryAllocated counts bytes of extra memory allocated
 void bubbleSort(int* pData, int n)
 {
-	
+	int i;
+	int j;
+	int k;
+	for(i=0; i<n-1; i++){
+		for(j=0; j<n-i-1; j++){
+			if(pData[j]>pData[j+1]){
+				k=pData[j];
+				pData[j]=pData[j+1];
+				pData[j+1]=k;
+			}
+		}
+	}
 }
 
 // implement selection sort
 // extraMemoryAllocated counts bytes of extra memory allocated
 void selectionSort(int* pData, int n)
 {
-	
+	int x;
+	int y;
+	int z;
+	int low_index;
+
+	for(x=0; x<n-1; x++){
+		low_index=x;
+		for(y=x+1; y<n; y++){
+			if(pData[y]<pData[low_index]){
+				low_index=y;
+			}
+			z=pData[x];
+			pData[x]=pData[low_index];
+			pData[low_index]=z;
+		}
+	}
 }
 
 // parses input file to an integer array
