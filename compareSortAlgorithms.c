@@ -13,8 +13,6 @@ void mergeSort(int pData[], int l, int r)
 		int mid = (l+r)/2;
 		mergeSort(pData, l, mid);
 		mergeSort(pData, mid+1, r);
-
-		//merge(pData, l, mid, r);
 	}
 }
 
